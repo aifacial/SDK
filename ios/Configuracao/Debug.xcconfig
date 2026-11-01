@@ -1,0 +1,2 @@
+#include? "../Pods/Target Support Files/Pods-ExemploSDK/Pods-ExemploSDK.debug.xcconfig"
+#include "Comum.xcconfig"

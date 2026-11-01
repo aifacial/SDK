@@ -1,0 +1,15 @@
+*.iml
+.gradle
+.kotlin
+.idea
+.DS_Store
+build
+/captures
+.externalNativeBuild
+.cxx
+# caminho do Android SDK e login de teste do cadastro de faces
+local.properties
+*.apk
+*.aab
+*.jks
+*.keystore

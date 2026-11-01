@@ -1,0 +1,17 @@
+// Copie este arquivo para Local.xcconfig e preencha. O Local.xcconfig fica fora do Git.
+// Valores em branco (ou começando com COLE_AQUI) ficam vazios no app, e dá para digitar na tela.
+
+// Time de desenvolvimento da Apple (Xcode → Settings → Accounts), para instalar no iPhone.
+DEVELOPMENT_TEAM = COLE_AQUI_O_TEAM_ID
+// Com uma conta gratuita, troque por um identificador só seu (ex.: br.com.suaempresa.exemplo).
+// PRODUCT_BUNDLE_IDENTIFIER = br.com.aifacial.exemplo
+
+// Empresa e token mobile (painel → Credenciais → Token mobile)
+AIFACIAL_COMPANY_ID = COLE_AQUI_O_ID_DA_EMPRESA
+AIFACIAL_MOBILE_TOKEN = COLE_AQUI_O_TOKEN_MOBILE
+// Token da empresa (painel → Empresas), SDK 1.5.0+
+AIFACIAL_COMPANY_TOKEN = COLE_AQUI_O_TOKEN_DA_EMPRESA
+
+// Login do painel, para o Cadastro de faces
+AIFACIAL_LOGIN_USER = COLE_AQUI_O_LOGIN_DO_PAINEL
+AIFACIAL_LOGIN_PASSWORD = COLE_AQUI_A_SENHA_DO_PAINEL

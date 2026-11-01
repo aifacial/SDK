@@ -1,0 +1,31 @@
+# App de exemplo do SDK AIFacial: usa o SDK pelo repositório CocoaPods da AIFacial,
+# exatamente como um app cliente.
+#
+# Acesso ao repositório: login do painel + chave Maven no ~/.netrc (veja o README):
+#   machine maven.aifacial.com.br login LOGIN_DO_PAINEL password CHAVE_MAVEN
+
+platform :ios, '16.0'
+
+# Versão do SDK AIFacial usada pelo exemplo
+AIFACIAL_SDK = '1.5.0'
+
+source 'https://cdn.cocoapods.org/'
+# Repositório da AIFacial. Para testar uma versão ainda não enviada ao servidor:
+#   AIFACIAL_PODS=http://localhost:8765/ios/specs/ pod install
+source ENV.fetch('AIFACIAL_PODS', 'https://maven.aifacial.com.br/ios/specs/')
+
+install! 'cocoapods', :warn_for_unused_master_specs_repo => false
+
+target 'ExemploSDK' do
+  # As dependências do SDK (ML Kit e TensorFlow Lite) vêm junto automaticamente.
+  pod 'AIFacialSDK', AIFACIAL_SDK
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      # Algumas dependências do ML Kit declaram iOS antigo demais para o Xcode atual.
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.5'
+    end
+  end
+end

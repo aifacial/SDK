@@ -1,0 +1,12 @@
+// Configuração do app de exemplo. Não edite os valores de teste aqui: copie
+// Local.xcconfig.exemplo para Local.xcconfig (que fica fora do Git) e preencha lá.
+
+PRODUCT_BUNDLE_IDENTIFIER = br.com.aifacial.exemplo
+DEVELOPMENT_TEAM =
+
+AIFACIAL_COMPANY_ID =
+AIFACIAL_MOBILE_TOKEN =
+AIFACIAL_COMPANY_TOKEN =
+AIFACIAL_LOGIN_USER =
+AIFACIAL_LOGIN_PASSWORD =
+#include? "Local.xcconfig"

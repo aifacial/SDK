@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>pt-BR</string>
+	<key>CFBundleDisplayName</key>
+	<string>AIFacial Exemplo</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>UILaunchScreen</key>
+	<dict/>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+
+	<!-- Obrigatório: texto do pedido de permissão da câmera. -->
+	<key>NSCameraUsageDescription</key>
+	<string>A câmera é usada para reconhecer o rosto e registrar o ponto.</string>
+
+	<!-- Opcional: envio da auditoria em segundo plano (AIFacial.registerBackgroundAudit). -->
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>br.com.aifacial.sdk.audit</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+	</array>
+
+	<!-- Valores de teste pré-preenchidos, vindos de Configuracao/Local.xcconfig (veja o README). -->
+	<key>AIFacialCompanyId</key>
+	<string>$(AIFACIAL_COMPANY_ID)</string>
+	<key>AIFacialMobileToken</key>
+	<string>$(AIFACIAL_MOBILE_TOKEN)</string>
+	<key>AIFacialCompanyToken</key>
+	<string>$(AIFACIAL_COMPANY_TOKEN)</string>
+	<key>AIFacialLoginUser</key>
+	<string>$(AIFACIAL_LOGIN_USER)</string>
+	<key>AIFacialLoginPassword</key>
+	<string>$(AIFACIAL_LOGIN_PASSWORD)</string>
+</dict>
+</plist>

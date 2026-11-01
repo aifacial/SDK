@@ -1,0 +1,68 @@
+plugins {
+    alias(libs.plugins.android.application)
+}
+
+android {
+    namespace 'br.com.aifacial.exemplo'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId "br.com.aifacial.exemplo"
+        minSdk 26
+        targetSdk 36
+        versionCode 1
+        versionName "1.0"
+
+        ndk { // Para funcionar em aparelhos com páginas de 16 KB
+            abiFilters "arm64-v8a", "armeabi-v7a"
+        }
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    // Valores de teste pré-preenchidos no app, lidos do local.properties (veja o README).
+    // Valores ainda com "COLE_AQUI" são ignorados (o campo fica vazio no app).
+    def local = new Properties()
+    def arquivo = rootProject.file('local.properties')
+    if (arquivo.exists()) {
+        arquivo.withReader('UTF-8') { local.load(it) }
+    }
+    def valor = { String chave ->
+        def v = local.getProperty(chave, '').trim()
+        v.startsWith('COLE_AQUI') ? '' : v
+    }
+    defaultConfig {
+        buildConfigField 'String', 'COMPANY_ID', '"' + valor('aifacial.companyId') + '"'
+        buildConfigField 'String', 'MOBILE_TOKEN', '"' + valor('aifacial.mobileToken') + '"'
+        buildConfigField 'String', 'COMPANY_TOKEN', '"' + valor('aifacial.companyToken') + '"'
+        buildConfigField 'String', 'LOGIN_USER', '"' + valor('aifacial.loginUser') + '"'
+        buildConfigField 'String', 'LOGIN_PASSWORD', '"' + valor('aifacial.loginPassword') + '"'
+    }
+
+    buildTypes {
+        release {
+            // R8 ligado, como num app de produção: testa as regras que vêm dentro do SDK.
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
+            signingConfig signingConfigs.debug
+            //
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+    // SDK AIFacial: baixado do repositório Maven, como em qualquer app cliente.
+    // As dependências dele (CameraX, TensorFlow Lite, ML Kit, WorkManager) vêm junto automaticamente.
+    implementation libs.aifacial.sdk
+
+    implementation libs.appcompat
+    implementation libs.constraintlayout
+    implementation libs.recyclerview
+}

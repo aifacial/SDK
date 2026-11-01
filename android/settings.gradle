@@ -1,0 +1,40 @@
+pluginManagement {
+    repositories {
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+
+        // Repositório Maven da AIFacial: o mesmo que o cliente usa.
+        // Login do painel + chave Maven: aifacialUser / aifacialPassword no gradle.properties.
+        def chave = providers.gradleProperty("aifacialPassword").getOrElse("")
+        if (chave.isEmpty() || chave.startsWith("COLE_AQUI")) {
+            throw new GradleException("Coloque a chave Maven em aifacialPassword, no arquivo gradle.properties " +
+                    "do projeto (painel AIFacial -> Credenciais -> Gerar chave Maven).")
+        }
+        maven {
+            name = "aifacial"
+            url = uri("https://maven.aifacial.com.br")
+            credentials {
+                username = providers.gradleProperty("aifacialUser").getOrElse("")
+                password = providers.gradleProperty("aifacialPassword").getOrElse("")
+            }
+        }
+    }
+}
+
+rootProject.name = "AIFacial Exemplo SDK"
+include ':app'
