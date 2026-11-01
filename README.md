@@ -37,17 +37,16 @@ Este repositório traz **apps de exemplo** prontos que usam o SDK exatamente com
 
 ## Antes de começar
 
-Você precisa de um cliente ativo no painel AIFacial e, no painel, em **Credenciais**:
+Você precisa de um cliente ativo no painel AIFacial e destes dados:
 
-| Item | Para quê |
-|---|---|
-| **Login do painel** | usuário do repositório do SDK e login do cadastro de faces |
-| **Chave Maven** ("Gerar chave Maven") | senha do repositório do SDK (Android e iOS). Aparece **uma única vez** ao ser gerada |
-| **ID da empresa** | identifica a empresa das pessoas que o aparelho vai reconhecer |
-| **Token mobile** | autoriza o aparelho a baixar o modelo e as pessoas |
-
-E, em **Empresas**, o **token da empresa** (`companytoken` da API `company_add`/`company_list`),
-obrigatório a partir da 1.5.0.
+| Item | Onde pegar | Para quê |
+|---|---|---|
+| **Login do painel** | fornecido pela AIFacial | usuário do repositório do SDK e login do cadastro de faces |
+| **Senha do painel** | fornecida pela AIFacial | login do cadastro de faces (não é a senha do repositório) |
+| **Chave Maven** | painel → **Credenciais** → "Gerar chave Maven" | senha do repositório do SDK (Android e iOS). Aparece **uma única vez** ao ser gerada |
+| **ID da empresa** | painel → **Credenciais** | identifica a empresa das pessoas que o aparelho vai reconhecer |
+| **Token mobile** | painel → **Credenciais** | autoriza o aparelho a baixar o modelo e as pessoas (o mesmo para todas as empresas do cliente) |
+| **Token da empresa** | painel → **Empresas** (ou `companytoken` da API `company_add`/`company_list`) | um por empresa; autoriza o aparelho a acessar as pessoas **dessa** empresa. Obrigatório a partir da 1.5.0 |
 
 As pessoas são cadastradas pela **API de integração** da AIFacial (ou pelo cadastro de faces do app).
 
